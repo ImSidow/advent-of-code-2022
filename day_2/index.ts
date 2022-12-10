@@ -5,24 +5,32 @@ fs.readFile('./input.txt', 'utf8', (err, data) => {
 
     // solution
 
+    const type = {
+        A: 'rock',
+        B: 'paper',
+        C: 'scissors',
+        X: 'rock',
+        Y: 'paper',
+        Z: 'scissors',
+    };
     const score = {
-        A: 'Rock',
-        B: 'Paper',
-        C: 'Scissors',
-        X: 'Rock',
-        Y: 'Paper',
-        Z: 'Scissors',
+        rock: 1,
+        paper: 2,
+        scissors: 3,
     };
 
     const rounds = data
         .split('\n')
         .map((round) => round.split(' ').map((player) => player));
 
+    let totalScore = 0;
     rounds.forEach((round) => {
-        const player1 = score[round[0]]
-        const player2 = score[round[1]]
+        const player1 = type[round[0]];
+        const player2 = type[round[1]];
 
-        if (player1 === 'Rock' && player2 === 'Paper') 
-        console.log();
+        if (player1 === 'rock' && player2 === 'paper')
+            totalScore += score[player2] + 6;
+        else if (player1 === 'rock' && player2 === 'paper')
+            totalScore += score[player2] + 6;
     });
 });
