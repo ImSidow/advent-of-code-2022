@@ -17,6 +17,7 @@ fs.readFile('./input.txt', 'utf8', (err, data) => {
     if (err) throw new Error(JSON.stringify(err));
 
     const arr = data.split('\n');
+    // comment added
 
     // answer 1
     let total = 0;
